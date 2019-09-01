@@ -4,6 +4,7 @@
       <p>I'm a ghost. Boo.</p>
     </div>
   </div>
+  <!-- jsfiddle was https://jsfiddle.net/pr6daecL/30/ -->
 </template>
 
 <script>
