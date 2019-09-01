@@ -1,22 +1,22 @@
 <template>
   <div id="app">
-    <p>I have {{ 5 | currency }} in my pocket</p>
+    <div v-show="isNight">
+      <p>I'm a ghost. Boo.</p>
+    </div>
   </div>
 </template>
 
 <script>
-import accounting from 'accounting'
 
 export default {
   data() {
     return {
-
     }
   },
 
-  filters: {
-    currency(money) {
-      return accounting.formatMoney(money)
+  computed: {
+    isNight() {
+      return new Date('4 January 3:30').getHours() < 7
     }
   }
 }
