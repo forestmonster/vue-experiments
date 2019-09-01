@@ -1,8 +1,11 @@
 <template>
   <div id="app">
-    <input type="text" v-model="name"/>
-    <input type="text" v-model="surname">
-    <output>{{ computedFullName }}</output>
+    <h1>List of expensive experiments</h1>
+    <ul>
+      <li v-bind:key="exp.name" v-for="exp in nonPhysics">
+        {{ exp.name }} ${{ exp.cost }}M USD
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -11,14 +14,17 @@
 export default {
   data() {
     return {
-      name: "John",
-      surname: "Snow"
+      experiments: [
+        {name: 'Large Hadron Collider', cost: 650, field: 'Physics'},
+        {name: "Violinist in Metro", cost: 3, field: "Psychology"}
+      ]
     }
   },
 
   computed: {
-    computedFullName() {
-      return this.name + ' ' + this.surname
+    nonPhysics() {
+      return this.experiments
+        .filter(exp => exp.field !== 'Physics')
     }
   }
 }
