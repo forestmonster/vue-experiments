@@ -16,7 +16,7 @@ export default {
 
   computed: {
     isNight() {
-      return new Date('4 January 3:30').getHours() < 7
+      return new Date('3 January 04:30').getHours() < 7
     }
   }
 }
