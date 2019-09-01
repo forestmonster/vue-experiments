@@ -1,10 +1,14 @@
 <template>
   <div id="app">
-    <div v-show="isNight">
-      <p>I'm a ghost. Boo.</p>
-    </div>
+    <textarea 
+      v-model="memeText"
+      :class="{warn: tooLong}"
+      :maxlength="limit"
+    />
+
+    {{ memeText.length }}
+
   </div>
-  <!-- jsfiddle was https://jsfiddle.net/pr6daecL/30/ -->
 </template>
 
 <script>
@@ -12,16 +16,27 @@
 export default {
   data() {
     return {
+      memeText: 'What if I told you ' + 'CSS can do that',
+      limit: 50
     }
   },
 
   computed: {
-    isNight() {
-      return new Date('3 January 04:30').getHours() < 7
+    tooLong() {
+      const gettingClose = this.limit - this.memeText.length <= 10
+
+      if (gettingClose) {
+        return true
+      } else {
+        return false
+      }
     }
   }
 }
 </script>
 
 <style>
+  .warn {
+    background: mistyrose
+  }
 </style>
