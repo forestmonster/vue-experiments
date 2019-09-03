@@ -25,11 +25,7 @@ export default {
     tooLong() {
       const gettingClose = this.limit - this.memeText.length <= 10
 
-      if (gettingClose) {
-        return true
-      } else {
-        return false
-      }
+      return gettingClose ? true : false
     }
   }
 }
