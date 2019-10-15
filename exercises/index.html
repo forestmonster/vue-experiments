@@ -9,9 +9,9 @@
         <div id="app" class="name">
             <p>This is {{ message }}.</p>
               {{ houses }}
-            <p v-for="(animal, index) in animals">
-            I really like the local {{ animal }}, which makes a 
-            "{{ sounds[index] }}" sound.
+            <p v-for="(value, key) in animals">
+            I really like the local {{ key }}, which makes a 
+            "{{ value }}" sound.
             </p>
         </div>
     </body>
@@ -21,8 +21,10 @@
           el: '#app',
           data: {
            message: 'fantabulous',
-           animals: ['woodchuck', 'beaver', 'autocrat', 'kingfisher', 'king'],
-           sounds: ['moo', 'baa', 'caw', 'burp', 'toot']
+           animals: {
+             'warbler': 'baa',
+             'peacock': 'moo'
+           },
           }
         })
     </script>
