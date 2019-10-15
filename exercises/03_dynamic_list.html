@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Creating a dynamic and animated list</title>
+    </head>
+    <body>
+        <div id="app">
+            <ul>
+                <li v-for='n in countdown'>{{ n }}</li>
+                <li>Launch!</li>
+            </ul>
+        </div>
+    </body>
+    <script src="./vue.js" charset="utf-8"></script>
+
+    <script charset="utf-8">
+        var vm = new Vue({
+          el: '#app',
+          data: {
+            countdown: []
+           },
+        });
+
+        let count = 10;
+
+        setInterval(function() {
+          if (count > 0) {
+            vm.countdown.push(count--)
+          }
+        }, 1000)
+    </script>
+
+</html>
