@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Vue tests</title>
+    </head>
+    <body>
+        <div id="app" class="name">
+            <p>This is {{ message }}.</p>
+              {{ houses }}
+            <p v-for="(animal, index) in animals">
+            I really like the local {{ animal }}, which makes a 
+            "{{ sounds[index] }}" sound.
+            </p>
+        </div>
+    </body>
+    <script src="./vue.js" charset="utf-8"></script>
+    <script charset="utf-8">
+        var app = new Vue({
+          el: '#app',
+          data: {
+           message: 'fantabulous',
+           animals: ['woodchuck', 'beaver', 'autocrat', 'kingfisher', 'king'],
+           sounds: ['moo', 'baa', 'caw', 'burp', 'toot']
+          }
+        })
+    </script>
+</html>
