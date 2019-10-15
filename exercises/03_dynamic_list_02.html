@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Vue exercise template</title>
+    </head>
+    <body>
+        <div id="app">
+            <ul>
+                <li v-for='element in countdown'>{{ element }}</li>
+                <li v-if='countdown.length === 10'>Launch!</li>
+            </ul>
+        </div>
+    </body>
+    <script src="./vue.js" charset="utf-8"></script>
+
+    <script charset="utf-8">
+        var vm = new Vue({
+          el: '#app',
+          data: {
+            countdown: []
+          },
+        });
+
+        let count = 10;
+
+        setInterval(function() {
+          if (count > 0) {
+            vm.countdown.push(count--); 
+          }
+        }, 500);
+    </script>
+
+</html>
