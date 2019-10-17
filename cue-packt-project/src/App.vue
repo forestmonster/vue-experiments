@@ -18,6 +18,11 @@ export default {
   },
 
   computed: {
+    complexCalculation() {
+      let i = 0;
+      for (i=0; i < 100000000; i++) {}
+      return blah
+    },
     computedFullName() {
       return this.name + this.surname
     }
