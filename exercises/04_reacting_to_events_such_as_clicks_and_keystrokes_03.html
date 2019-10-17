@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Vue exercise template</title>
+    </head>
+    <body>
+        <div id="app">
+          <h3>Worlds</h3>
+          <ul>
+            <li v-for='(world, index) in worlds'>{{ world }}
+              <button @click="remove(index)">Remove</button>
+            </li>
+            <li>
+              <input v-model="newWorld">
+              <button @click="add">Add</button>
+            </li>
+          </ul>
+        </div>
+    </body>
+    <script src="./vue.js" charset="utf-8"></script>
+
+    <script charset="utf-8">
+        var app = new Vue({
+          el: '#app',
+
+          data: {
+            worlds: ['Mars', 'Jupiter', 'Setec'],
+            newWorld: ''
+          },
+
+          methods: {
+            add() {
+              this.worlds.push(this.newWorld)
+              this.newWorld = ''
+            },
+            remove(index) {
+              this.worlds.splice(start=index, 1)
+            }
+          }
+        });
+    </script>
+
+</html>
+
+<!-- vim:set et nu sw=2 ts=2: -->
