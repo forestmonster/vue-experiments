@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Vue exercise template</title>
+    </head>
+    <body>
+        <div id="app">
+          {{ text | capitalizeAllLetters }}
+        </div>
+    </body>
+    <script src="./vue.js" charset="utf-8"></script>
+
+    <script charset="utf-8">
+      Vue.filter('capitalizeFirstLetter', function(string) {
+        var capitalFirst = string.charAt(0).toUpperCase()
+        var restOfString = string.slice(1, string.length)
+        return capitalFirst + restOfString
+        }
+      );
+
+      Vue.filter('capitalizeAllLetters', function(string) {
+        return string.toUpperCase()
+        }
+      );
+
+      var app = new Vue({
+        el: '#app',
+        data: {
+          text: 'hello world!'
+        },
+      });
+    </script>
+
+</html>
+
+<!-- vim:set et nu sw=2 ts=2: -->
