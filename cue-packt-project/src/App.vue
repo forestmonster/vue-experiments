@@ -1,38 +1,35 @@
 <template>
   <div id="app">
-    <textarea 
-      v-model="memeText"
-      :class="{warn: tooLong}"
-      :maxlength="limit"
-    />
-
-    {{ memeText.length }}
-
+    <input type="text" v-model="name"/>
+    <input type="text" id="surname" value="Snow"/>
+    <button @click="saveSurname">Save Surname</button>
   </div>
 </template>
 
 <script>
+let surname = 'Snow'
 
 export default {
   data() {
     return {
-      memeText: 'What if I told you ' + 'CSS can do that',
-      limit: 50
+      name: "John"
     }
   },
 
   computed: {
-    tooLong() {
-      const gettingClose = this.limit - this.memeText.length <= 10
+    computedFullName() {
+      return this.name + surname
+    }
 
-      return gettingClose ? true : false
+  },
+
+  methods: {
+    saveSurname() {
+      surname = document.querySelector()
     }
   }
 }
 </script>
 
 <style>
-  .warn {
-    background: mistyrose
-  }
 </style>
