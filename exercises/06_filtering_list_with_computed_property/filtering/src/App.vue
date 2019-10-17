@@ -1,28 +1,38 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+      <h3>List of expensive experiments</h3>
+      <ul>
+          <li v-bind:key="exp.name" v-for="exp in nonPhysics">
+              {{ exp.name }} {{ exp.cost }}m
+          </li>
+      </ul>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
+  data() {
+    return {
+      experiments: [ 
+        {name: 'RHIC Ion Collider', cost: 650, field: 'Physics'}, 
+        {name: 'Neptune Undersea Observatory', cost: 100, field: 'Biology'}, 
+        {name: 'Violinist in the Metro', cost: 3, field: 'Psychology'}, 
+        {name: 'Large Hadron Collider', cost: 7700, field: 'Physics'}, 
+        {name: 'DIY Particle Detector', cost: 0, field: 'Physics'} 
+      ] 
+    }
+  },
+  
+  computed: {
+    nonPhysics() {
+      return this.experiments
+      .filter(exp => exp.field !== 'Physics')
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
+
+
