@@ -7,7 +7,8 @@
     </head>
     <body>
         <div id="app">
-          {{ text | capitalizeAllLetters }}
+          <!-- {{ text | capitalizeAllLetters }} -->
+          {{ textWithOhs | replaceOhs }}
         </div>
     </body>
     <script src="./vue.js" charset="utf-8"></script>
@@ -25,10 +26,21 @@
         }
       );
 
+      Vue.filter('replaceOhs', function(thing) {
+        let arr = Array.from(thing)
+        if (arr.some(x => x === 'O')) {
+          positionOfFirstO = arr.indexOf('O')
+          arr.splice(positionOfFirstO, 1, '0')
+          return arr.join('')
+        }
+      });
+      
+
       var app = new Vue({
         el: '#app',
         data: {
-          text: 'hello world!'
+          text: 'hello world!',
+          textWithOhs: 'I Once showed a gal'
         },
       });
     </script>
