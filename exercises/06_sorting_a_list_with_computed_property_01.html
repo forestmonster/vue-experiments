@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Vue exercise template</title>
+  </head>
+  <body>
+    <div id="app">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Country</th>
+            <th @click="sort">Electricity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="dam in damsByElectricity">
+            <td>{{dam.name}}</td>
+            <td>{{dam.country}}</td>
+            <td>{{dam.electricity}} MegaWatts</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+  <script src="./vue.js" charset="utf-8"></script>
+
+  <script charset="utf-8">
+    // URL: https://jsfiddle.net/packt/prdq5317/
+    var app = new Vue({
+      el: '#app',
+      data: {
+        dams: [
+          {name: 'Nurek Dam', country: 'Tajikistan', electricity: 3200},
+          {name: 'Three Gorges Dam', country: 'China', electricity: 22500},
+          {name: 'Tarbela Dam', country: 'Pakistan', electricity: 3500},
+          {name: 'Guri Dam', country: 'Venezuela', electricity: 10200},
+        ],
+        signedness: 1,
+      },
+      computed: {
+        damsByElectricity() {
+          return this.dams.sort(
+            (d1, d2) => (d2.electricity - d1.electricity) * this.signedness,
+          );
+        },
+      },
+      methods: {
+        sort() {
+          this.signedness = this.signedness * -1;
+        },
+      },
+    });
+  </script>
+</html>
+
+<!-- vim:set et nu sw=2 ts=2: -->
