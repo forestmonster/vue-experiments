@@ -2,7 +2,7 @@
   <div id="app">
       <h3>List of expensive experiments</h3>
       <ul>
-          <li v-bind:key="exp.name" v-for="exp in nonPhysics">
+          <li v-bind:key="exp.name" v-for="exp in experiments">
               {{ exp.name }} {{ exp.cost }}m
           </li>
       </ul>

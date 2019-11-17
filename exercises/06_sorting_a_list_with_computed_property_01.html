@@ -42,7 +42,7 @@
       },
       computed: {
         damsByElectricity() {
-          return this.dams.sort(
+          return this.dams.slice().sort(
             (d1, d2) => (d2.electricity - d1.electricity) * this.signedness,
           );
         },
