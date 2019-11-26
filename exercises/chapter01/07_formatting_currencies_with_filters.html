@@ -7,16 +7,19 @@
   </head>
   <body>
     <div id="app">
-      I have {{ $ | currency}} in my pocket.
+      I have {{ $ | currency }} in my pocket.
     </div>
     <script src="./vue.js" charset="utf-8"></script>
 
+    <script src="accounting.js" type="module"></script>
     <script charset="utf-8">
+      import accounting from 'accounting'
+
       var app = new Vue({
         el: '#app',
         data: {
           return {}
-        }
+        },
       });
     </script>
   </body>
