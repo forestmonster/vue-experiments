@@ -8,7 +8,7 @@
         But actually I'm none of those.<br />
       </p>
     </article>
-    <div id="solution" @click="showSolution = true">
+    <div id="solution" @click="showSolution = !showSolution">
       I am a
       <transition name="fade">
         <span id="dragon" v-show="showSolution">Dragon</span>
@@ -41,12 +41,12 @@ export default {
   cursor: pointer;
 }
 
-.fade-enter {
+.fade-enter, .fade-leave-to {
   opacity: 0;
 }
 
-.fate-enter-active {
-  transition: opacity 2.5s;
+.fade-enter-active {
+  transition: opacity 1.5s;
 }
 </style>
 
