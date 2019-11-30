@@ -1,10 +1,13 @@
 <template>
   <div id="app">
     <h3>{{ message }}</h3>
-    <button @click="taxiCalled = true">
+    <button @click="taxiCalled = !taxiCalled">
       Call a cab
     </button>
-    <transition enter-active-class="animated slideInRight">
+    <transition
+      enter-active-class="animated slideInRight"
+      leave-active-class="animated bounceOutRight"
+    >
       <p v-if="taxiCalled">🚖</p>
     </transition>
   </div>
