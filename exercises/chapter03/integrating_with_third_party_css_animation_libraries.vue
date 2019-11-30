@@ -4,7 +4,9 @@
     <button @click="taxiCalled = true">
       Call a cab
     </button>
-    <p v-if="taxiCalled">🚖</p>
+    <transition enter-active-class="animated slideInRight">
+      <p v-if="taxiCalled">🚖</p>
+    </transition>
   </div>
 </template>
 
