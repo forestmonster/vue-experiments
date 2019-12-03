@@ -7,16 +7,25 @@ export default {
   data() {
     return {
       name: 'sound-level',
-      levelText: {
-        1: 'Quiet',
-        2: 'Medium',
-        3: 'Loud',
-        4: 'Very Loud'
-      },
+      levelText: [
+        'Quiet',
+        'Medium',
+        'Loud',
+        'Very Loud'
+      ],
     }
   },
 
-  props: ['level']
+  props: {
+    level: {
+      type: Number,
+      default: 1,
+      required: true,
+      validator(x) {
+        return x >= 0 && x <= 3
+      }
+    }
+  }
 }
 </script>
 

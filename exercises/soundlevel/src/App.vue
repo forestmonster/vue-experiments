@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-   <sound-level level='1'/> 
+   <sound-level :level='level' /> 
   </div>
 </template>
 
@@ -11,6 +11,11 @@ export default {
   name: 'app',
   components: {
     SoundLevel
+  },
+  data() {
+    return {
+      level: 633
+    }
   }
 }
 </script>
