@@ -1,20 +1,20 @@
 <template>
   <div id="app">
-   <sound-level :level='level' /> 
+    <sound-level :level="level" />
   </div>
 </template>
 
 <script>
-import SoundLevel from './components/SoundLevel.vue'
+import SoundLevel from "./components/SoundLevel.vue"
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
     SoundLevel
   },
   data() {
     return {
-      level: 633
+      level: 3
     }
   }
 }
@@ -22,7 +22,7 @@ export default {
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

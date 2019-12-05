@@ -1,18 +1,13 @@
 <template>
-<p>Sound level: {{ levelText[level] }}</p>
+  <p>Sound level: {{ levelText[level] }}</p>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      name: 'sound-level',
-      levelText: [
-        'Quiet',
-        'Medium',
-        'Loud',
-        'Very Loud'
-      ],
+      name: "sound-level",
+      levelText: ["Quiet", "Medium", "Loud", "Very Loud"]
     }
   },
 
