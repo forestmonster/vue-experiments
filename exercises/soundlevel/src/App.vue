@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <sound-level :level="level" />
+    <sound-level ref="comp" :level="level" />
   </div>
 </template>
 
@@ -12,9 +12,15 @@ export default {
   components: {
     SoundLevel
   },
+
+  mounted() {
+    this.output = this.$refs.comp.output
+  },
+
   data() {
     return {
-      level: 3
+      level: 3,
+      output: 'none'
     }
   }
 }

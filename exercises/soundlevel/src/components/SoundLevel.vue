@@ -1,5 +1,8 @@
 <template>
-  <p>Sound level: {{ levelText[level] }}</p>
+  <div>
+    <p>Sound level: {{ levelText[level] }}</p>
+    <p>{{ output }}</p>
+  </div>
 </template>
 
 <script>
@@ -7,7 +10,8 @@ export default {
   data() {
     return {
       name: "sound-level",
-      levelText: ["Quiet", "Medium", "Loud", "Very Loud"]
+      levelText: ["Quiet", "Medium", "Loud", "Very Loud"],
+      output: "speakers"
     }
   },
 
@@ -20,6 +24,10 @@ export default {
         return x >= 0 && x <= 3
       }
     }
+  },
+
+  mounted() {
+    this.output = "headphones"
   }
 }
 </script>
