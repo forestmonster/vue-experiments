@@ -9,7 +9,7 @@
           <note-card
           v-for="item in list"
           v-bind:key="item.id"
-          :remove="() => console.log("removing")"
+          :remove="() => console.log('removing')"
           :title="item.name"
           />
         </div>
@@ -54,8 +54,20 @@ export default {
 </script>
 
 <style>
-* {
-  font-family: "Lato";
+#app {
+  font-family: 'Avenir', Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 80%;
+  max-width: 800px;
+  text-align: left;
 }
 </style>
 
