@@ -2,14 +2,14 @@
   <div id="app">
     <div class="wrapper">
       <input v-model="item" />
-      <button>Add</button>
+      <button @click="add">Add</button>
 
       <div style="display: flex">
         <div>
           <note-card
             v-for="item in list"
             v-bind:key="item.id"
-            :remove="() => console.log('removing')"
+            :remove="() => remove(item.id) "
             :title="item.name"
           />
         </div>
@@ -24,12 +24,23 @@
 <script>
 import NoteCard from "./NoteCard.vue"
 import NoteSummaryList from "./NoteSummaryList.vue"
+import Loading from "./Loading.vue"
+
+const AsyncComponent = () => ({
+  component: new Promise(resolve => {
+    setTimeout(() => {
+      resolve(NoteSummaryList)
+    }, 2000)
+  }),
+  loading: Loading,
+  delay: 0
+})
 
 export default {
   name: "app",
   components: {
     NoteCard,
-    NoteSummaryList
+    NoteSummaryList: AsyncComponent
   },
   data() {
     return {
@@ -43,15 +54,15 @@ export default {
   },
   methods: {
     add() {
-      this.$store.commit('add', {
+      this.$store.commit("add", {
         id: Date.now(),
         name: this.item
       })
 
-      this.item = ''
+      this.item = ""
     },
-    remove() {
-
+    remove(id) {
+      this.$store.commit("remove", id)
     }
   }
 }

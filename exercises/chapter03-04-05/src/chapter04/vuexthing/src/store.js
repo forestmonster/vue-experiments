@@ -10,14 +10,6 @@ export default new Vuex.Store({
                 id: 1,
                 name: 'Dispatch Note 01'
             },
-            {
-                id: 2,
-                name: 'Dispatch Note 02'
-            },
-            {
-                id: 3,
-                name: 'Dispatch Note 03'
-            }
         ]
     },
 
