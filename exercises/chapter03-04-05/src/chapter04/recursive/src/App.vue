@@ -1,17 +1,54 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+      <ul>
+          <taxon :tree="living" taxon="living"></taxon>
+      </ul>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Taxon from './components/Taxon.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    Taxon
+  },
+  data() {
+    return {
+      living: {
+        animals: {
+          invertebrates: {
+            crab: null,
+            bee: null,
+            ant: null
+          },
+          vertebrates: {
+            fish: {
+              shark: null
+            }
+          },
+          mammals: {
+            rabbit: null,
+            rat: null
+          }
+        },
+        plants: {
+          flowering: {
+            maize: null,
+            paddy: null,
+          },
+          'non-flowering': {
+            algae: {
+              seaweed: null,
+              spirogyra: null
+            },
+            fungi: {
+            }
+          },
+        }
+      }
+    }
   }
 }
 </script>
@@ -26,3 +63,5 @@ export default {
   margin-top: 60px;
 }
 </style>
+
+<!-- vim:set et nu sw=2 ts=2: -->
