@@ -44,7 +44,11 @@ export default {
               spirogyra: null
             },
             fungi: {
-            }
+              yeast: null,
+              mushroom: null
+            },
+            moss: null,
+            fern: null
           },
         }
       }
