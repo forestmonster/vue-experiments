@@ -17,7 +17,14 @@ export default {
     }
   },
   created() {
-    axios.get(externalURL).catch().then()
+    axios
+      .get(externalURL)
+      .catch(error => {
+        this.price = error
+      })
+      .then(returned => {
+        this.price = returned.data[0].price_usd
+      })
   }
 }
 </script>
