@@ -2,6 +2,7 @@
   <div id="app">
     <h2>Latest Bitcoin price</h2>
     <p>{{ price }}</p>
+    <p>Headers we got back: {{ headers }}</p>
   </div>
 </template>
 
@@ -14,14 +15,15 @@ export default {
   name: "app",
   data() {
     return {
-      price: "loading..."
+      price: "loading...",
+      headers: "waiting for headers..."
     }
   },
   created() {
     axios
       .get(btcURL)
       .then(x => {
-        this.price = x.data[0].price_usd
+        (this.price = x.data[0].price_usd), (this.headers = x.headers)
       })
       .catch(err => {
         this.price = err.message
