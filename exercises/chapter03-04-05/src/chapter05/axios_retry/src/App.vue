@@ -1,17 +1,23 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <h3>Latest Bitcoin Price</h3>
+    <p>{{ price }}</p>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue"
+const externalURL = "https://api.coinmarketcap.com/v1/ticker/bitcoin/?convert=EUR"
+
+import axios from "axios"
 
 export default {
-  name: "app",
-  components: {
-    HelloWorld
+  data() {
+    return {
+      price: "Loading price..."
+    }
+  },
+  created() {
+    axios.get(externalURL).catch().then()
   }
 }
 </script>
