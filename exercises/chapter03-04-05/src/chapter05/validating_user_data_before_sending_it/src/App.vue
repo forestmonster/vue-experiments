@@ -1,26 +1,51 @@
 <template>
   <div id="app">
-    <form @submit.prevent="vueSubmit">
+    <h3>Write a new post</h3>
+    <form>
       <div>
-        <label>Name</label>
-        <input type="text" required />
+        <label>Title of your post: </label>
+        <input type="text" v-model="title" />
       </div>
       <div>
-        <label>E-mail</label>
-        <input type="email" required />
+        <label>Write your thoughts for the day: </label>
+        <textarea name="thoughts" id="thoughts" v-model="body"></textarea>
       </div>
       <div>
-        <label>Submit</label>
-        <button type="submit">Submit</button>
+        <button @click.prevent="submit">Submit</button>
       </div>
     </form>
+    <h3>Response from the server</h3>
+    <pre>{{ response }}</pre>
   </div>
 </template>
 
 <script>
+import axios from "axios"
+
 export default {
+  data() {
+    return {
+      userId: 1,
+      title: "",
+      body: "",
+      response: "..."
+    }
+  },
   methods: {
-    vueSubmit() {
+    submit() {
+      const data = {
+        title: this.title,
+        body: this.body,
+        userId: this.userId
+      }
+
+      const url = "https://jsonplaceholder.typicode.com/posts"
+
+      // eslint-disable-next-line
+      axios.post(url, data).then(x => {
+        // eslint-disable-next-line
+        debugger
+      })
     }
   }
 }
