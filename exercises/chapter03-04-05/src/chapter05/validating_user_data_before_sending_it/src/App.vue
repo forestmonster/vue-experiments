@@ -5,16 +5,20 @@
       <form @submit.prevent="postSubmit" accept-charset="utf-8">
         <div>
           <label>Your name</label>
-          <input type="text" name="name" id="name" required />
+          <input type="text" name="name" id="name" v-model="name" required />
         </div>
         <div>
           <label>Your thoughts</label>
-          <input type="text" name="thoughts" id="thoughts" />
+          <input type="text" name="thoughts" id="thoughts" v-model="thoughts" />
         </div>
         <div>
           <button type="submit">Submit thoughts</button>
         </div>
       </form>
+      <div>
+        <h3>Response from the server</h3>
+        <p>{{ serverResponse }}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -26,16 +30,17 @@ export default {
   data() {
     return {
       name: "",
-      thoughts: "",
+      thoughts: "googoo",
       userID: 5,
-      response: ""
+      response: "",
+      serverResponse: "Loading..."
     }
   },
   methods: {
     postSubmit() {
       const data = {
-        title: this.title,
-        body: this.body,
+        name: this.name,
+        thoughts: this.thoughts,
         userID: this.userID
       }
       const postURL = "https://jsonplaceholder.typicode.com/posts"
@@ -43,8 +48,7 @@ export default {
         .post(postURL, data)
         .catch()
         .then(x => {
-          debugger
-          //this.name = "blah"
+          this.response = x.data
         })
     }
   }
